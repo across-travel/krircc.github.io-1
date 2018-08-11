@@ -10,8 +10,8 @@ cache:
 matrix:
   include:
     - env:
-      - 
-      script: 
+      - TASK=build
+      script: uname -a
 
 deploy:
   provider: script
@@ -19,4 +19,4 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
-    condition: $TRAVIS_PULL_REQUEST = "false"
+    condition: $TRAVIS_PULL_REQUEST = "false" && $TASK = "build"
