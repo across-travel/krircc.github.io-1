@@ -12,10 +12,11 @@
     box-sizing: border-box;
     padding: 0; margin: 0;
   }
-  body {
+  html, body {
     font-family: var(--font-stack);
     line-height: 1.4rem;
     color: var(--text);
+    height: 100%;
   }
   a { 
     color: var(--link);
@@ -28,121 +29,59 @@
   }
 
 /* ----------------------------------------nav----------------------------------------*/
+#header, #lnav {
+  background:url(../imgs/sky.jpg) no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid rgba(97, 107, 100, 0.24);
+}
   #lnav {
     position: fixed;
     width: 100%;
-    line-height: 60px;
-    zoom:1;
+    line-height: 50px;
     display: flex;
     justify-content: space-between;
   }
-  #line {
-    position: fixed;
-    zoom:1;
-    display: flex;
-    width: 100%;
-    height: 4px;
-    background-color: var(--theme);
-  }
-  #lnav h1 #home {
-    font-size: 28px;
+  #lnav h1 #logo {
+    font-size: 30px;
     vertical-align:middle;
-    margin: auto 1vw;
+    margin-left: 2vw;
     font-weight: bold;
     color: var(--theme);
   }
-  #lnav label {
+  #lnav h1 img {
+    width: 50px;
+    height: 50px;
+    vertical-align:middle;
+  }
+  #lnav label a {
     float: right;
     font-size: 26px;
     font-weight: bold;
-    margin: auto 2vw;
-  }
-  #lnav h1 img {
-    width: 3rem;
-    height: 3rem;
-    vertical-align:middle;
+    color: var(--theme);
   }
 /* ----------------------------------------main----------------------------------------*/
     main {
         margin: 0 auto;
     }
-    #content {
-        margin-bottom: 2rem;
-  }
-    #rnav, #lnav {
-        background: black;
-    }
-    main #top {
-        text-align: center;
-        background:url(../imgs/bacer.jpg) no-repeat;
-        background-size: cover;
-        height: 777px;
-    }
-    main #top h1 {
-        font-size: 3.3rem;
-        margin-top: 22rem;
-        line-height: 3rem;
-        color: #15f077;
-    }
-    main #top p {
-        font-size: 1.5rem;
-        margin: 3rem auto;
-        color: fuchsia;
-    }
-    main #top button {
-        margin: auto 2rem auto;
-        font-size: 1.4rem;
-        padding: 8px;
-        color: fuchsia;
-        border-radius: 5px;
-    }
-    main #content {
-        padding: 2rem;
-        text-align: center;
-    }
-
-/* ----------------------------------------footer----------------------------------------*/
-  footer{
-    text-align: center;
-    justify-content: center;
-    border-top: 2px solid var(--new);
-  }
-  footer a { 
-    color: var(--new); 
-    font-weight: bold;
-  }
-  footer p {
-    margin: 0;
-    font-weight: lighter;
-    padding: 1rem 0;
-  }
 /* ----------------------------------------mobile----------------------------------------*/
     @media only screen and (max-width:  600px) {
-        main #top {
-            padding: 4rem 2rem 2rem;
-        }
-        #lnav h1 img {
-            margin-left: 2vw;
-          }
-          #rnav {
-            padding-top: 4.4rem;
+        #rnav {
+            padding-top: 3.13rem;
             height: 0;
             display: block;
             overflow: hidden;
-          }
-          #rnav li a {
+        }
+        #rnav li a {
             display:block;
             font-weight: bold;
-            border-bottom: 1px solid #d8d8d8;
+            border-top: 1px solid #d8d8d8;
             padding: 0.5rem 1rem;
-          }
+            color: var(--theme);
+        }
     }
 /* ----------------------------------------table----------------------------------------*/
     @media only screen and (min-width:  600px) and (max-width:  900px) {
-        main #top {
-            padding: 8rem 2rem 2rem;
-        }
-        #menu {
+          #menu {
             display: none;
           }
           #lnav h1 img {
@@ -151,7 +90,7 @@
           #rnav {
             position: fixed;
             right: 0;
-            line-height: 60px;
+            line-height: 50px;
             padding-right: 5vw;
           }
           #rnav li {
@@ -161,13 +100,11 @@
             font-size: 20px;
             font-weight: bold;
             padding-left: 2vw;
+            color: var(--theme);
           }
     }
 /* ----------------------------------------desktop----------------------------------------*/
     @media only screen and (min-width:  900px) {
-        main #top {
-            padding: 8rem 2rem 2rem;
-        }
         #menu {
             display: none;
           }
@@ -177,7 +114,7 @@
           #rnav {
             position: fixed;
             right: 0;
-            line-height: 60px;
+            line-height: 50px;
             padding-right: 10vw;
           }
           #rnav li {
