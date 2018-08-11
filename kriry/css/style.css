@@ -29,9 +29,11 @@
   }
 
 /* ----------------------------------------nav----------------------------------------*/
-#header, #lnav {
+#header, #lnav, #rnav {
   background:url(../imgs/sky.jpg) no-repeat;
   background-size: cover;
+}
+#header, #lnav {
   border-bottom: 1px solid rgba(97, 107, 100, 0.24);
 }
   #lnav {
@@ -62,6 +64,7 @@
 /* ----------------------------------------main----------------------------------------*/
     main {
         margin: 0 auto;
+        height: 100%;
     }
 /* ----------------------------------------mobile----------------------------------------*/
     @media only screen and (max-width:  600px) {
@@ -75,7 +78,7 @@
             display:block;
             font-weight: bold;
             border-top: 1px solid #d8d8d8;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.5rem 0.5rem 4rem;
             color: var(--theme);
         }
     }
