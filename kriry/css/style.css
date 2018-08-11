@@ -1,0 +1,82 @@
+@charset "utf-8";
+@import url(./style/style.css);
+
+/* ----------------------------------------rest----------------------------------------*/
+  :root {
+    --grey:  #a19d9d;
+    --text-color: #413e3e;
+    --black: #000;
+    --white: #fff;
+    --font-stack: helvetica, arial, sans-serif;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+  }
+  /* html { font-size: 62.5%; } */
+  body {
+    font-family: var(--font-stack);
+    line-height: 1.4rem;
+    color: var(--grey);
+  }
+  a { 
+    color: var(--grey);
+    text-decoration: none; 
+  }
+  a:hover { color: var(--new) ;text-decoration:none; }
+  
+  ul, ol, li {
+    list-style: none;
+  }
+/* ----------------------------------------tutorials----------------------------------------*/
+    #rnav, #lnav {
+        background-image: url("../imgs/bacer.jpg");
+    }
+    main #top {
+        text-align: center;
+        height: 51rem;
+        background-image: url("../imgs/bacer.jpg");
+    }
+    main #top h1 {
+        font-size: 3.3rem;
+        margin-top: 11rem;
+        line-height: 3rem;
+        color: var(--white);
+    }
+    main #top p {
+        font-size: 1.5rem;
+        margin: 3rem auto;
+        color:  var(--grey);
+    }
+    main #top button {
+        margin: auto 2rem auto;
+        font-size: 1.4rem;
+        padding: 5px 7px;
+        background-color: var(--white);
+        border: none;
+    }
+    main #content {
+        padding: 2rem;
+        text-align: center;
+        min-height: 200vh;
+    }
+/* ----------------------------------------mobile----------------------------------------*/
+    @media only screen and (max-width:  600px) {
+        main #top {
+            padding: 4rem 2rem 2rem;
+        }
+    }
+/* ----------------------------------------table----------------------------------------*/
+    @media only screen and (min-width:  600px) and (max-width:  900px) {
+        main #top {
+            padding: 8rem 2rem 2rem;
+        }
+    }
+/* ----------------------------------------desktop----------------------------------------*/
+    @media only screen and (min-width:  900px) {
+        main #top {
+            padding: 8rem 2rem 2rem;
+        }
+        
+    }
