@@ -1,12 +1,10 @@
 @charset "utf-8";
-@import url(./style/style.css);
 
 /* ----------------------------------------rest----------------------------------------*/
   :root {
-    --grey:  #a19d9d;
-    --text-color: #413e3e;
-    --black: #000;
-    --white: #fff;
+    --theme: #f8f8f8;
+    --link: #1548f0;
+    --text: #413e3e;
     --font-stack: helvetica, arial, sans-serif;
   }
   
@@ -14,69 +12,185 @@
     box-sizing: border-box;
     padding: 0; margin: 0;
   }
-  /* html { font-size: 62.5%; } */
   body {
     font-family: var(--font-stack);
     line-height: 1.4rem;
-    color: var(--grey);
+    color: var(--text);
   }
   a { 
-    color: var(--grey);
+    color: var(--link);
     text-decoration: none; 
   }
-  a:hover { color: var(--new) ;text-decoration:none; }
+  a:hover { color: fuchsia; text-decoration:none; }
   
   ul, ol, li {
     list-style: none;
   }
-/* ----------------------------------------tutorials----------------------------------------*/
+
+/* ----------------------------------------nav----------------------------------------*/
+  #lnav {
+    position: fixed;
+    width: 100%;
+    line-height: 60px;
+    zoom:1;
+    display: flex;
+    justify-content: space-between;
+  }
+  #line {
+    position: fixed;
+    zoom:1;
+    display: flex;
+    width: 100%;
+    height: 4px;
+    background-color: var(--theme);
+  }
+  #lnav h1 #home {
+    font-size: 28px;
+    vertical-align:middle;
+    margin: auto 1vw;
+    font-weight: bold;
+    color: var(--theme);
+  }
+  #lnav label {
+    float: right;
+    font-size: 26px;
+    font-weight: bold;
+    margin: auto 2vw;
+  }
+  #lnav h1 img {
+    width: 3rem;
+    height: 3rem;
+    vertical-align:middle;
+  }
+/* ----------------------------------------main----------------------------------------*/
+    main {
+        margin: 0 auto;
+    }
+    #content {
+        margin-bottom: 2rem;
+  }
     #rnav, #lnav {
-        background-image: url("../imgs/bacer.jpg");
+        background: black;
     }
     main #top {
         text-align: center;
-        height: 51rem;
-        background-image: url("../imgs/bacer.jpg");
+        background:url(../imgs/bacer.jpg) no-repeat;
+        background-size: cover;
+        height: 777px;
     }
     main #top h1 {
         font-size: 3.3rem;
-        margin-top: 11rem;
+        margin-top: 22rem;
         line-height: 3rem;
-        color: var(--white);
+        color: #15f077;
     }
     main #top p {
         font-size: 1.5rem;
         margin: 3rem auto;
-        color:  var(--grey);
+        color: fuchsia;
     }
     main #top button {
         margin: auto 2rem auto;
         font-size: 1.4rem;
-        padding: 5px 7px;
-        background-color: var(--white);
-        border: none;
+        padding: 8px;
+        color: fuchsia;
+        border-radius: 5px;
     }
     main #content {
         padding: 2rem;
         text-align: center;
-        min-height: 200vh;
     }
+
+/* ----------------------------------------footer----------------------------------------*/
+  footer{
+    text-align: center;
+    justify-content: center;
+    border-top: 2px solid var(--new);
+  }
+  footer a { 
+    color: var(--new); 
+    font-weight: bold;
+  }
+  footer p {
+    margin: 0;
+    font-weight: lighter;
+    padding: 1rem 0;
+  }
 /* ----------------------------------------mobile----------------------------------------*/
     @media only screen and (max-width:  600px) {
         main #top {
             padding: 4rem 2rem 2rem;
         }
+        #lnav h1 img {
+            margin-left: 2vw;
+          }
+          #rnav {
+            padding-top: 4.4rem;
+            height: 0;
+            display: block;
+            overflow: hidden;
+          }
+          #rnav li a {
+            display:block;
+            font-weight: bold;
+            border-bottom: 1px solid #d8d8d8;
+            padding: 0.5rem 1rem;
+          }
     }
 /* ----------------------------------------table----------------------------------------*/
     @media only screen and (min-width:  600px) and (max-width:  900px) {
         main #top {
             padding: 8rem 2rem 2rem;
         }
+        #menu {
+            display: none;
+          }
+          #lnav h1 img {
+            margin-left: 5vw;
+          }
+          #rnav {
+            position: fixed;
+            right: 0;
+            line-height: 60px;
+            padding-right: 5vw;
+          }
+          #rnav li {
+            display: inline-block;
+          }
+          #rnav li a {
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 2vw;
+          }
     }
 /* ----------------------------------------desktop----------------------------------------*/
     @media only screen and (min-width:  900px) {
         main #top {
             padding: 8rem 2rem 2rem;
         }
-        
+        #menu {
+            display: none;
+          }
+          #lnav h1 img {
+            margin-left: 11vw;
+          }
+          #rnav {
+            position: fixed;
+            right: 0;
+            line-height: 60px;
+            padding-right: 10vw;
+          }
+          #rnav li {
+            display: inline-block;
+          }
+          #rnav li a {
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 2vw;
+            vertical-align:middle;
+            color: var(--theme);
+          }
     }
+
+
+
