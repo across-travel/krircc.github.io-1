@@ -2,7 +2,6 @@
 @import url(./style.css);
 
 #music {
-    background-color: #faf5f5;
     height: 100%;
 }
 #music li a {
@@ -25,7 +24,7 @@
         padding-left: 33%;
     }
     main #music {
-        padding-top: 8rem;
+        padding-top: 6rem;
     }
 }
 @media only screen and (min-width:  900px) {
@@ -33,6 +32,6 @@
         padding-left: 33%;
     }
     main #music {
-        padding-top: 8rem;
+        padding-top: 6rem;
     }
 }

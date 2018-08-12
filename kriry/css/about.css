@@ -2,7 +2,6 @@
 @import url(./style.css);
 
 #about {
-    background-color: #faf5f5;
     height: 100%;
 }
 #about h1 {
@@ -20,7 +19,7 @@
 @media only screen and (max-width:  600px) { 
     main #about {
         padding: 2rem;
-        padding-left: 11%;
+        padding-left: 4rem;
     }
 }
 @media only screen and (min-width:  600px) and (max-width:  900px) {

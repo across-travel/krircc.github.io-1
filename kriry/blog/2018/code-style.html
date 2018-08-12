@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <title>kriry</title>
+        <link rel="stylesheet" href="../../css/article.css" />
+        <link rel="shortcut icon" href="../../favicon.ico">
+    </head>
+    <body>
+            <header>
+                    <div id="mnav">
+                        <div id="lnav">
+                            <h1><a href="/"><img src="../../imgs/kriry.jpeg"/></a><a id="logo" href="/">kriry</a></h1>
+                            <label ><a href="#" id="menu">Menu</a></label>
+                        </div>
+                        <div id="rnav">
+                            <li> <a href="../../picture.html" title="照片">照片</a></li>
+                            <li> <a href="../../music.html" title="音乐">音乐</a></li>
+                            <li> <a href="../../media.html" title="影视">影视</a></li>
+                            <li> <a href="../../blog.html" title="博客">博客</a></li>
+                            <li> <a href="../../about.html" title="关于">关于</a></li>
+                        </div> 
+                    </div>
+            </header>
+            <div id="kriryarticle">
+        <h2 id="%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F">编程范式</h2>
+<p>Rust是一个多范式 (multi-paradigm) 的编译型语言。除了通常的结构化、命令式编程外，
+还支持以下范式。</p>
+<h3 id="%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</h3>
+<p>Rust使用闭包 (closure) 来创建匿名函数：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">let</span> plus_num = |x: <span class="hljs-built_in">i32</span>| x + num;
+</div></code></pre>
+<p>其中闭包<code>plus_num</code>借用了它作用域中的<code>let</code>绑定<code>num</code>。如果要让闭包获得所有权，
+可以使用<code>move</code>关键字：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> num = <span class="hljs-number">5</span>;
+
+{
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> add_num = <span class="hljs-keyword">move</span> |x: <span class="hljs-built_in">i32</span>| num += x;
+
+    add_num(<span class="hljs-number">5</span>);
+}
+
+<span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">5</span>, num);
+</div></code></pre>
+<p>Rust 还支持高阶函数 (high order function)，允许把闭包作为参数来生成新的函数：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add_one</span></span>(x: <span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span> { x + <span class="hljs-number">1</span> }
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">apply</span></span>&lt;F&gt;(f: F, y: <span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span>
+    <span class="hljs-keyword">where</span> F: <span class="hljs-built_in">Fn</span>(<span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span>
+{
+    f(y) * y
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">factory</span></span>(x: <span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">Box</span>&lt;<span class="hljs-built_in">Fn</span>(<span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span>&gt; {
+    <span class="hljs-built_in">Box</span>::new(<span class="hljs-keyword">move</span> |y| x + y)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> transform: <span class="hljs-function"><span class="hljs-keyword">fn</span></span>(<span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span> = add_one;
+    <span class="hljs-keyword">let</span> f0 = add_one(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> f1 = apply(add_one, <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">let</span> f2 = apply(transform, <span class="hljs-number">2</span>);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}, {}, {}"</span>, f0, f1, f2);
+
+    <span class="hljs-keyword">let</span> closure = |x: <span class="hljs-built_in">i32</span>| x + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">let</span> c0 = closure(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> c1 = apply(closure, <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">let</span> c2 = apply(|x| x + <span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}, {}, {}"</span>, c0, c1, c2);
+
+    <span class="hljs-keyword">let</span> box_fn = factory(<span class="hljs-number">1i32</span>);
+    <span class="hljs-keyword">let</span> b0 = box_fn(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> b1 = (*box_fn)(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> b2 = (&amp;box_fn)(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}, {}, {}"</span>, b0, b1, b2);
+
+    <span class="hljs-keyword">let</span> add_num = &amp;(*box_fn);
+    <span class="hljs-keyword">let</span> translate: &amp;<span class="hljs-built_in">Fn</span>(<span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span> = add_num;
+    <span class="hljs-keyword">let</span> z0 = add_num(<span class="hljs-number">2i32</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> z1 = apply(add_num, <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">let</span> z2 = apply(translate, <span class="hljs-number">2</span>);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}, {}, {}"</span>, z0, z1, z2);
+}
+</div></code></pre>
+<h3 id="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">面向对象编程</h3>
+<p>Rust通过<code>impl</code>关键字在<code>struct</code>、<code>enum</code>或者<code>trait</code>对象上实现方法调用语法 (method call syntax)。
+关联函数 (associated function) 的第一个参数通常为<code>self</code>参数，有3种变体：</p>
+<ul>
+<li><code>self</code>，允许实现者移动和修改对象，对应的闭包特性为<code>FnOnce</code>。</li>
+<li><code>&amp;self</code>，既不允许实现者移动对象也不允许修改，对应的闭包特性为<code>Fn</code>。</li>
+<li><code>&amp;mut self</code>，允许实现者修改对象但不允许移动，对应的闭包特性为<code>FnMut</code>。</li>
+</ul>
+<p>不含<code>self</code>参数的关联函数称为静态方法 (static method)。</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Circle</span></span> {
+    x: <span class="hljs-built_in">f64</span>,
+    y: <span class="hljs-built_in">f64</span>,
+    radius: <span class="hljs-built_in">f64</span>,
+}
+
+<span class="hljs-keyword">impl</span> Circle {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>(x: <span class="hljs-built_in">f64</span>, y: <span class="hljs-built_in">f64</span>, radius: <span class="hljs-built_in">f64</span>) -&gt; Circle {
+        Circle {
+            x: x,
+            y: y,
+            radius: radius,
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">f64</span> {
+        std::<span class="hljs-built_in">f64</span>::consts::PI * (<span class="hljs-keyword">self</span>.radius * <span class="hljs-keyword">self</span>.radius)
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> c = Circle { x: <span class="hljs-number">0.0</span>, y: <span class="hljs-number">0.0</span>, radius: <span class="hljs-number">2.0</span> };
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, c.area());
+
+    <span class="hljs-comment">// use associated function and method chaining</span>
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, Circle::new(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">2.0</span>).area());
+}
+</div></code></pre>
+<p>为了描述类型可以实现的抽象接口 (abstract interface)，
+Rust引入了特性 (trait) 来定义函数类型签名 (function type signature)：</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HasArea</span></span> {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">f64</span>;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Circle</span></span> {
+    x: <span class="hljs-built_in">f64</span>,
+    y: <span class="hljs-built_in">f64</span>,
+    radius: <span class="hljs-built_in">f64</span>,
+}
+
+<span class="hljs-keyword">impl</span> HasArea <span class="hljs-keyword">for</span> Circle {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">f64</span> {
+        std::<span class="hljs-built_in">f64</span>::consts::PI * (<span class="hljs-keyword">self</span>.radius * <span class="hljs-keyword">self</span>.radius)
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Square</span></span> {
+    x: <span class="hljs-built_in">f64</span>,
+    y: <span class="hljs-built_in">f64</span>,
+    side: <span class="hljs-built_in">f64</span>,
+}
+
+<span class="hljs-keyword">impl</span> HasArea <span class="hljs-keyword">for</span> Square {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">f64</span> {
+        <span class="hljs-keyword">self</span>.side * <span class="hljs-keyword">self</span>.side
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">print_area</span></span>&lt;T: HasArea&gt;(shape: T) {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"This shape has an area of {}"</span>, shape.area());
+}
+</div></code></pre>
+<p>其中函数<code>print_area()</code>中的泛型参数<code>T</code>被添加了一个名为<code>HasArea</code>的特性约束 (trait constraint)，
+用以确保任何实现了<code>HasArea</code>的类型将拥有一个<code>.area()</code>方法。
+如果需要多个特性限定 (multiple trait bounds)，可以使用<code>+</code>：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">use</span> std::fmt::<span class="hljs-built_in">Debug</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>&lt;T: <span class="hljs-built_in">Clone</span>, K: <span class="hljs-built_in">Clone</span> + <span class="hljs-built_in">Debug</span>&gt;(x: T, y: K) {
+    x.clone();
+    y.clone();
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, y);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">bar</span></span>&lt;T, K&gt;(x: T, y: K)
+    <span class="hljs-keyword">where</span> T: <span class="hljs-built_in">Clone</span>,
+          K: <span class="hljs-built_in">Clone</span> + <span class="hljs-built_in">Debug</span>
+{
+    x.clone();
+    y.clone();
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, y);
+}
+</div></code></pre>
+<p>其中第二个例子使用了更灵活的<code>where</code>从句，它还允许限定的左侧可以是任意类型，
+而不仅仅是类型参数。</p>
+<p>定义在特性中的方法称为默认方法 (default method)，可以被该特性的实现覆盖。
+此外，特性之间也可以存在继承 (inheritance)：</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Foo</span></span> {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>(&amp;<span class="hljs-keyword">self</span>);
+
+    <span class="hljs-comment">// default method</span>
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">bar</span></span>(&amp;<span class="hljs-keyword">self</span>) { <span class="hljs-built_in">println!</span>(<span class="hljs-string">"We called bar."</span>); }
+}
+
+<span class="hljs-comment">// inheritance</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">FooBar</span></span> : Foo {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foobar</span></span>(&amp;<span class="hljs-keyword">self</span>);
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Baz</span></span>;
+
+<span class="hljs-keyword">impl</span> Foo <span class="hljs-keyword">for</span> Baz {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>(&amp;<span class="hljs-keyword">self</span>) { <span class="hljs-built_in">println!</span>(<span class="hljs-string">"foo"</span>); }
+}
+
+<span class="hljs-keyword">impl</span> FooBar <span class="hljs-keyword">for</span> Baz {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foobar</span></span>(&amp;<span class="hljs-keyword">self</span>) { <span class="hljs-built_in">println!</span>(<span class="hljs-string">"foobar"</span>); }
+}
+</div></code></pre>
+<p>如果两个不同特性的方法具有相同的名称，可以使用通用函数调用语法 (universal function call syntax)：</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// short-hand form</span>
+Trait::method(args);
+
+<span class="hljs-comment">// expanded form</span>
+&lt;Type <span class="hljs-keyword">as</span> Trait&gt;::method(args);
+</div></code></pre>
+<p>关于实现特性的几条限制：</p>
+<ul>
+<li>如果一个特性不在当前作用域内，它就不能被实现。</li>
+<li>不管是特性还是<code>impl</code>，都只能在当前的包装箱内起作用。</li>
+<li>带有特性约束的泛型函数使用单态 (monomorphization)，
+所以它是静态派分的 (statically dispatched)。</li>
+</ul>
+<p>下面列举几个非常有用的标准库特性：</p>
+<ul>
+<li><code>Drop</code>提供了当一个值退出作用域后执行代码的功能，它只有一个<code>drop(&amp;mut self)</code>方法。</li>
+<li><code>Borrow</code>用于创建一个数据结构时把拥有和借用的值看作等同。</li>
+<li><code>AsRef</code>用于在泛型中把一个值转换为引用。</li>
+<li><code>Deref&lt;Target=T&gt;</code>用于把<code>&amp;U</code>类型的值自动转换为<code>&amp;T</code>类型。</li>
+<li><code>Iterator</code>用于在集合 (collection) 和惰性值生成器 (lazy value generator) 上实现迭代器。</li>
+<li><code>Sized</code>用于标记运行时长度固定的类型，而不定长的切片和特性必须放在指针后面使其运行时长度已知，
+比如<code>&amp;[T]</code>和<code>Box&lt;Trait&gt;</code>。</li>
+</ul>
+<h3 id="%E5%85%83%E7%BC%96%E7%A8%8B">元编程</h3>
+<p>泛型 (generics) 在类型理论中称作参数多态 (parametric polymorphism)，
+意为对于给定参数可以有多种形式的函数或类型。先看Rust中的一个泛型例子：</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Option</span></span>&lt;T&gt; {
+    <span class="hljs-literal">Some</span>(T),
+    <span class="hljs-literal">None</span>,
+}
+
+<span class="hljs-keyword">let</span> x: <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">i32</span>&gt; = <span class="hljs-literal">Some</span>(<span class="hljs-number">5</span>);
+<span class="hljs-keyword">let</span> y: <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">f64</span>&gt; = <span class="hljs-literal">Some</span>(<span class="hljs-number">5.0f64</span>);
+</div></code></pre>
+<p>其中<code>&lt;T&gt;</code>部分表明它是一个泛型数据类型。当然，泛型参数也可以用于函数参数和结构体域：</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// generic functions</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">make_pair</span></span>&lt;T, U&gt;(a: T, b: U) -&gt; (T, U) {
+    (a, b)
+}
+<span class="hljs-keyword">let</span> couple = make_pair(<span class="hljs-string">"man"</span>, <span class="hljs-string">"female"</span>);
+
+<span class="hljs-comment">// generic structs</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span>&lt;T&gt; {
+    x: T,
+    y: T,
+}
+<span class="hljs-keyword">let</span> int_origin = Point { x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span> };
+<span class="hljs-keyword">let</span> float_origin = Point { x: <span class="hljs-number">0.0</span>, y: <span class="hljs-number">0.0</span> };
+</div></code></pre>
+<p>对于多态函数，存在两种派分 (dispatch) 机制：静态派分和动态派分。
+前者类似于C++的模板，Rust会生成适用于指定类型的特殊函数，然后在被调用的位置进行替换，
+好处是允许函数被内联调用，运行比较快，但是会导致代码膨胀 (code bloat)；
+后者类似于Java或Go的<code>interface</code>，Rust通过引入特性对象 (trait object) 来实现，
+在运行期查找虚表 (vtable) 来选择执行的方法。特性对象<code>&amp;Foo</code>具有和特性<code>Foo</code>相同的名称，
+通过转换 (casting) 或者强制多态化 (coercing) 一个指向具体类型的指针来创建。</p>
+<p>当然，特性也可以接受泛型参数。但是，往往更好的处理方式是使用关联类型 (associated type)：</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// use generic parameters</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Graph</span></span>&lt;N, E&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">has_edge</span></span>(&amp;<span class="hljs-keyword">self</span>, &amp;N, &amp;N) -&gt; <span class="hljs-built_in">bool</span>;
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">edges</span></span>(&amp;<span class="hljs-keyword">self</span>, &amp;N) -&gt; <span class="hljs-built_in">Vec</span>&lt;E&gt;;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">distance</span></span>&lt;N, E, G: Graph&lt;N, E&gt;&gt;(graph: &amp;G, start: &amp;N, end: &amp;N) -&gt; <span class="hljs-built_in">u32</span> {
+
+}
+
+<span class="hljs-comment">// use associated types</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Graph</span></span> {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">N</span></span>;
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">E</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">has_edge</span></span>(&amp;<span class="hljs-keyword">self</span>, &amp;Self::N, &amp;Self::N) -&gt; <span class="hljs-built_in">bool</span>;
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">edges</span></span>(&amp;<span class="hljs-keyword">self</span>, &amp;Self::N) -&gt; <span class="hljs-built_in">Vec</span>&lt;Self::E&gt;;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">distance</span></span>&lt;G: Graph&gt;(graph: &amp;G, start: &amp;G::N, end: &amp;G::N) -&gt; uint {
+
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span>;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Edge</span></span>;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SimpleGraph</span></span>;
+
+<span class="hljs-keyword">impl</span> Graph <span class="hljs-keyword">for</span> SimpleGraph {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">N</span></span> = Node;
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">E</span></span> = Edge;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">has_edge</span></span>(&amp;<span class="hljs-keyword">self</span>, n1: &amp;Node, n2: &amp;Node) -&gt; <span class="hljs-built_in">bool</span> {
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">edges</span></span>(&amp;<span class="hljs-keyword">self</span>, n: &amp;Node) -&gt; <span class="hljs-built_in">Vec</span>&lt;Edge&gt; {
+
+    }
+}
+
+<span class="hljs-keyword">let</span> graph = SimpleGraph;
+<span class="hljs-keyword">let</span> object = <span class="hljs-built_in">Box</span>::new(graph) <span class="hljs-keyword">as</span> <span class="hljs-built_in">Box</span>&lt;Graph&lt;N=Node, E=Edge&gt;&gt;;
+</div></code></pre>
+<p>Rust中的宏 (macro) 允许我们在语法级别上进行抽象。先来看<code>vec!</code>宏的实现：</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">macro_rules!</span> vec {
+    ( $( $x:expr ),* ) =&gt; {
+        {
+            <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> temp_vec = <span class="hljs-built_in">Vec</span>::new();
+            $(
+                temp_vec.push($x);
+            )*
+            temp_vec
+        }
+    };
+}
+</div></code></pre>
+<p>其中<code>=&gt;</code>左边的<code>$x:expr</code>模式是一个匹配器 (matcher)，<code>$x</code>是元变量 (metavariable)，
+<code>expr</code>是片段指定符 (fragment specifier)。匹配器写在<code>$(...)</code>中，
+<code>*</code>会匹配0个或多个表达式，表达式之间的分隔符为逗号。
+<code>=&gt;</code>右边的外层大括号只是用来界定整个右侧结构的，也可以使用<code>()</code>或者<code>[]</code>，
+左边的外层小括号也类似。扩展中的重复与匹配器中的重复会同步进行：
+每个匹配的<code>$x</code>都会在宏扩展中产生一个单独的<code>push</code>语句。</p>
+<h3 id="%E5%B9%B6%E5%8F%91%E8%AE%A1%E7%AE%97">并发计算</h3>
+<p>Rust提供了两个特性来处理并发 (concurrency)：<code>Send</code>和<code>Sync</code>。
+当一个<code>T</code>类型实现了<code>Send</code>，就表明该类型的所有权可以在进程间安全地转移；
+而实现了<code>Sync</code>就表明该类型在多线程并发时能够确保内存安全。</p>
+<p>Rust的标准库<code>std::thread</code>提供了并行执行代码的功能：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">use</span> std::thread;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> handle = thread::spawn(|| {
+        <span class="hljs-string">"Hello from a thread!"</span>
+    });
+
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, handle.join().unwrap());
+}
+</div></code></pre>
+<p>其中<code>thread::scoped()</code>方法接受一个闭包，它将在一个新线程中执行。</p>
+<p>Rust尝试解决可变状态的共享问题，通过所有权系统来帮助排除数据竞争 (data race)：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">use</span> std::sync::{Arc, Mutex};
+<span class="hljs-keyword">use</span> std::sync::mpsc;
+<span class="hljs-keyword">use</span> std::thread;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> data = Arc::new(Mutex::new(<span class="hljs-number">0u32</span>));
+
+    <span class="hljs-comment">// Creates a shared channel that can be sent along from many threads</span>
+    <span class="hljs-comment">// where tx is the sending half (tx for transmission),</span>
+    <span class="hljs-comment">// and rx is the receiving half (rx for receiving).</span>
+    <span class="hljs-keyword">let</span> (tx, rx) = mpsc::channel();
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+        <span class="hljs-keyword">let</span> (data, tx) = (data.clone(), tx.clone());
+
+        thread::spawn(<span class="hljs-keyword">move</span> || {
+            <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> data = data.lock().unwrap();
+            *data += i;
+
+            tx.send(*data).unwrap();
+        });
+    }
+
+    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, rx.recv().unwrap());
+    }
+}
+</div></code></pre>
+<p>其中<code>Arc&lt;T&gt;</code>类型是一个原子引用计数指针 (atomic reference counted pointer)，
+实现了<code>Sync</code>，可以安全地跨线程共享。<code>Mutex&lt;T&gt;</code>类型提供了互斥锁 (mutex's lock)，
+同一时间只允许一个线程能修改它的值。<code>mpsc::channel()</code>方法创建了一个通道 (channel)，
+来发送任何实现了<code>Send</code>的数据。<code>Arc&lt;T&gt;</code>的<code>clone()</code>方法用来增加引用计数，
+而当离开作用域时计数减少。</p>
+</div>
+<script src="../../js/nav.js"></script>
+    </body>
+    </html>

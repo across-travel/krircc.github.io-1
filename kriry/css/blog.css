@@ -2,37 +2,81 @@
 @import url(./style.css);
 
 #blog {
-    background-color: #faf5f5;
     height: 100%;
 }
-#blog li a {
-    padding-left: 1rem;
-    border-left: 4px solid greenyellow;
+#blog h2{
     color: fuchsia;
-
+    font-size: 1.8rem;
+}
+#blog li {
+    display: flex;
+}
+#blog li #item {
+    flex: 1;
+    padding: 0 1rem;
+}
+#blog li img, #blog li #item {
+    box-sizing: border-box;
+}
+#blog li a { 
+    font-weight: bold;
+}
+#blog li #tail {
+    color: goldenrod;
 }
 
 @media only screen and (max-width:  600px) { 
-    #blog li {
-        padding-left: 11%;
-    }
     main #blog {
-        padding: 2rem;
+        padding: 1rem;
+    }
+    #blog h2, #blog li {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+    #blog li img {
+        width: 3rem;
+        height: 3rem;
+    }
+    #blog li a { 
+        font-size: 1.1rem;
+    }
+    #blog li #tail {
+        
+        font-size: 0.9rem;
     }
 }
 @media only screen and (min-width:  600px) and (max-width:  900px) {
-    #blog li {
-        padding-left: 33%;
-    }
     main #blog {
-        padding-top: 8rem;
+        padding-top: 4rem;
+    }
+    #blog h2, #blog li {
+        padding-left: 15%;
+        margin-bottom: 1rem;
+    }
+    #blog li img {
+        width: 4rem;
+        height: 4rem;
+    }
+    #blog li a { 
+        font-size: 1.2rem;
     }
 }
 @media only screen and (min-width:  900px) {
-    #blog li {
-        padding-left: 33%;
-    }
     main #blog {
-        padding-top: 8rem;
+        padding-top: 5rem;
+    }
+    #blog h2, #blog li {
+        padding-left: 15%;
+        margin-bottom: 1rem;
+    }
+    #blog li img {
+        width: 4rem;
+        height: 4rem;
+    }
+    #blog li a { 
+        font-size: 1.5rem;
+    }
+    #blog li #tail {
+        margin-top: 0.6vh;
     }
 }
