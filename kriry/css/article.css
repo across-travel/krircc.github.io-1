@@ -1,8 +1,23 @@
-@charset "utf-8";
-@import url(./style.css);
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    line-height: 1.5;
+}
+pre, code, pre code {
+    font-size: 25px;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+}
+#articlepic {
+    padding-top: 1rem;
+}
+
+#articlestyle {
+    margin: 1rem 12rem 9rem 9rem;
+}
 
 #articlereturn {
-    margin: 1rem;
     font-weight: bold;
     font-size: 2rem;
     width: 8rem;
@@ -12,18 +27,11 @@
     border: none; 
     outline: none; /* Remove outline */
 }
-#articlestyle {
-    margin: 0 5rem 10rem 5rem;
-}
-/* pre,pre code,code {
-    width: 200%;
-    height: 200%;
-} */
 #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
     bottom: 1.1rem; /* Place the button at the bottom of the page */
-    right: 10%; /* Place the button 30px from the right */
+    right: 1rem; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
