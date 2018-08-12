@@ -22,24 +22,10 @@
         <title>kriry</title>
         <link rel="stylesheet" href="../../css/article.css" />
         <link rel="shortcut icon" href="../../favicon.ico">
+        <script src="../../js/gtop.js"></script>
     </head>
     <body>
-            <header>
-                    <div id="mnav">
-                        <div id="lnav">
-                            <h1><a href="/"><img src="../../imgs/kriry.jpeg"/></a><a id="logo" href="/">kriry</a></h1>
-                            <label ><a href="#" id="menu">Menu</a></label>
-                        </div>
-                        <div id="rnav">
-                            <li> <a href="../../picture.html" title="照片">照片</a></li>
-                            <li> <a href="../../music.html" title="音乐">音乐</a></li>
-                            <li> <a href="../../media.html" title="影视">影视</a></li>
-                            <li> <a href="../../blog.html" title="博客">博客</a></li>
-                            <li> <a href="../../about.html" title="关于">关于</a></li>
-                        </div> 
-                    </div>
-            </header>
-            <div id="kriryarticle">
+        <button id="articlereturn"><a  href="../../blog.html">返回</a></button><div id="articlestyle">
         <h2 id="%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F">编程范式</h2>
 <p>Rust是一个多范式 (multi-paradigm) 的编译型语言。除了通常的结构化、命令式编程外，
 还支持以下范式。</p>
@@ -389,6 +375,6 @@ Trait::method(args);
 来发送任何实现了<code>Send</code>的数据。<code>Arc&lt;T&gt;</code>的<code>clone()</code>方法用来增加引用计数，
 而当离开作用域时计数减少。</p>
 </div>
-<script src="../../js/nav.js"></script>
+<button id="myBtn" title="返回顶部">顶部</button>
     </body>
     </html>
