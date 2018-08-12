@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import url(./style.css);
+
+#music {
+    background-color: #faf5f5;
+    height: 100%;
+}
+#music li a {
+    padding-left: 1rem;
+    border-left: 4px solid greenyellow;
+    color: fuchsia;
+
+}
+
+@media only screen and (max-width:  600px) { 
+    #music li {
+        padding-left: 11%;
+    }
+    main #music {
+        padding: 2rem;
+    }
+}
+@media only screen and (min-width:  600px) and (max-width:  900px) {
+    #music li {
+        padding-left: 33%;
+    }
+    main #music {
+        padding-top: 8rem;
+    }
+}
+@media only screen and (min-width:  900px) {
+    #music li {
+        padding-left: 33%;
+    }
+    main #music {
+        padding-top: 8rem;
+    }
+}

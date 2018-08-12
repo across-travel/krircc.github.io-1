@@ -8,7 +8,7 @@ main #home {
     height: 750px;
 }
 main #home h1 {
-    margin-top: 15rem;
+    margin-top: 18rem;
     font-size: 3rem;
     line-height: 4rem;
     color: #15f077;
@@ -19,23 +19,14 @@ main #home p {
     margin: 3rem auto;
     color: fuchsia;
 }
-main #home a {
-    margin-right: 2.2rem;
-    font-size: 1.4rem;
-    padding: 11px 8px 8px;
-    color: fuchsia;
-    border-radius: 5px;
-    background-color:rgba(0,152,50,0.7);  
-    border: none; 
-}
 
 @media only screen and (max-width:  600px) { 
     main #home {
         padding: 2rem;
     }
     main #home h1 {
+        margin-top: 11rem;
         font-size: 3rem;
-        margin-top: 9rem;
         line-height: 4rem;
         color: #15f077;
     }

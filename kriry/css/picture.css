@@ -19,19 +19,42 @@ main #picture {
     text-transform : uppercase;
   }
   #picture #wrapper #name header p {
-    color: #ccc;
+    color: rgb(12, 136, 49);
+  }
+  #picture #wrapper #name p {
+    text-align: center;
   }
   #picture #wrapper #name hr {
     margin: 2rem auto;
   }
 
-@media only screen and (max-width:  600px) {
+@media only screen and (max-width:  666px) {
     main {
         width: 99.5%;
     }
     #picture #wrapper #name {
         margin-bottom: 1rem;
         border: 1px solid rgb(225, 231, 228);
+    }
+}
+@media only screen and (min-width:  666px) and (max-width:  900px) {
+    main {
+        width: 90%;
+        padding-top: 4rem;
+    }
+    #picture #wrapper {
+        display: flex;
+    }
+    #picture #wrapper  article {
+        flex: 0 1 32%;
+        margin-right: 1.5%;
+    }
+    #picture #wrapper #name:last-child {
+        margin-right: 1rem;
+    }
+    #picture #wrapper #name {
+        margin: 1rem;
+        border: 1px solid rgb(220, 230, 223);
     }
 }
 @media only screen and (min-width:  900px) {

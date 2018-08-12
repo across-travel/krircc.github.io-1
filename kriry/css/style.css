@@ -88,13 +88,13 @@
             display: none;
           }
           #lnav h1 img {
-            margin-left: 5vw;
+            margin-left: 3vw;
           }
           #rnav {
             position: fixed;
             right: 0;
             line-height: 50px;
-            padding-right: 5vw;
+            padding-right: 3vw;
           }
           #rnav li {
             display: inline-block;
@@ -112,13 +112,13 @@
             display: none;
           }
           #lnav h1 img {
-            margin-left: 11vw;
+            margin-left: 5vw;
           }
           #rnav {
             position: fixed;
             right: 0;
             line-height: 50px;
-            padding-right: 10vw;
+            padding-right: 5vw;
           }
           #rnav li {
             display: inline-block;
