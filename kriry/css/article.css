@@ -1,5 +1,4 @@
 body {
-    width: 100%;
     height: 100%;
     font-size: 20px;
     line-height: 1.5;
@@ -10,14 +9,18 @@ pre, code, pre code {
     background-color: #f5f5f5;
 }
 #articlepic {
-    padding-top: 1rem;
+    width: 100%;height: 666px; 
 }
-
+#articlepic img {
+    width: 100%;
+    height: 100%;
+}
 #articlestyle {
-    margin: 1rem 12rem 9rem 9rem;
+    margin: 1rem 5rem 9rem 5rem;
 }
 
 #articlereturn {
+    margin-top: 1rem;
     font-weight: bold;
     font-size: 2rem;
     width: 8rem;
@@ -31,7 +34,7 @@ pre, code, pre code {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
     bottom: 1.1rem; /* Place the button at the bottom of the page */
-    right: 1rem; /* Place the button 30px from the right */
+    right: 2rem; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
