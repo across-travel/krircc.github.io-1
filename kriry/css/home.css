@@ -5,7 +5,7 @@ main #home {
     text-align: center;
     background:url(../imgs/sky.jpg) no-repeat;
     background-size: cover;
-    height: 750px;
+    height: 768px;
 }
 main #home h1 {
     margin-top: 18rem;
