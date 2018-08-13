@@ -5,7 +5,7 @@ main #home {
     text-align: center;
     background:url(../imgs/sky.jpg) no-repeat;
     background-size: cover;
-    height: 750px;
+    height: 760px;
 }
 main #home h1 {
     margin-top: 18rem;
@@ -19,7 +19,12 @@ main #home p {
     margin: 3rem auto;
     color: fuchsia;
 }
-
+main #home button {
+    font-size: 1.1rem;
+    color: fuchsia;
+    background-color:rgba(0,152,50,0);  
+    border: none; 
+}
 @media only screen and (max-width:  600px) { 
     main #home {
         padding: 2rem;
