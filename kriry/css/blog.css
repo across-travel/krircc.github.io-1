@@ -4,10 +4,6 @@
 #blog {
     height: 100%;
 }
-#blog h2{
-    color: fuchsia;
-    font-size: 1.8rem;
-}
 #blog li {
     display: flex;
 }
@@ -31,7 +27,7 @@
     main #blog {
         padding: 1rem;
     }
-    #blog h2, #blog li {
+    #blog li {
         padding-left: 1rem;
         margin-bottom: 1rem;
     }
@@ -47,7 +43,7 @@
     main #blog {
         padding-top: 4rem;
     }
-    #blog h2, #blog li {
+    #blog li {
         padding-left: 15%;
         margin-bottom: 1rem;
     }
@@ -63,7 +59,7 @@
     main #blog {
         padding-top: 5rem;
     }
-    #blog h2, #blog li {
+    #blog li {
         padding-left: 15%;
         margin-bottom: 1rem;
     }

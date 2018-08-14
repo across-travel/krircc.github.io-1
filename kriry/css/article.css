@@ -1,40 +1,21 @@
-body {
-    height: 100%;
-    font-size: 20px;
-    line-height: 1.5;
-}
-pre, code, pre code {
-    font-size: 25px;
-    line-height: 1.5;
-    background-color: #f5f5f5;
-}
-#articlepic {
-    width: 100%;height: 666px; 
-}
-#articlepic img {
+@charset "utf-8";
+@import url(./style.css);
+
+main #articlepic img {
     width: 100%;
     height: 100%;
 }
-#articlestyle {
-    margin: 1rem 5rem 9rem 5rem;
-}
-
-#articlereturn {
-    margin-top: 1rem;
+main #meijiao {
+    color: fuchsia;
     font-weight: bold;
-    font-size: 2rem;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    background-color:rgba(0,152,50,0.7);  
-    border: none; 
-    outline: none; /* Remove outline */
 }
-#myBtn {
+main #articlestyle {
+    line-height: 1.8rem;
+}
+main #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 1.1rem; /* Place the button at the bottom of the page */
-    right: 2rem; /* Place the button 30px from the right */
+    bottom: 1rem; /* Place the button at the bottom of the page */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
@@ -42,8 +23,53 @@ pre, code, pre code {
     font-weight: bold;
     cursor: pointer; /* Add a mouse pointer on hover */
     font-weight: bold;
-    font-size: 2rem;
-    width: 8rem;
-    height: 8rem;
+    font-size: 1rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%; /* Rounded corners */
+}
+@media only screen and (max-width:  600px) { 
+    main #articlepic {
+        height: 40vh; 
+    }
+    main #meijiao {
+        margin: 0.5rem 3%;
+    }
+    main #articlestyle {
+        margin: 0 3% 4.4rem;
+    }
+    main #myBtn { 
+        right: 11%; /* Place the button 30px from the right */
+    }
+}
+@media only screen and (min-width:  600px) and (max-width:  900px) {
+    main #articlepic {
+        padding-top: 3.2rem;
+        height: 60vh; 
+    }
+    main #meijiao {
+        margin: 0.5rem 11%;
+    }
+    main #articlestyle {
+        margin: 1rem 11% 2rem;
+    }
+    main #myBtn { 
+        right: 3%; /* Place the button 30px from the right */
+    }
+}
+@media only screen and (min-width:  900px) {
+    main #articlepic {
+        padding-top: 3.2rem;
+        height: 77vh; 
+    }
+    main #meijiao {
+        float: right;
+        margin: 1rem 9% auto auto;
+    }
+    main #articlestyle {
+        margin: 2.2rem 22%;
+    }
+    main #myBtn { 
+        right: 15%; /* Place the button 30px from the right */
+    }
 }
