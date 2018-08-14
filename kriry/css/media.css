@@ -1,6 +1,92 @@
 @charset "utf-8";
 @import url(./style.css);
 
+#media article {
+    margin-bottom: 2rem;
+}
+#media article h3 {
+    margin-bottom: 0.5rem;
+}
+#media article section time .info {
+    color: rgb(0, 140, 255);
+}
+#media article section time .category {
+    color: rgb(184, 81, 22);
+}
+#media .line {
+    position: absolute;
+    width: 3px;
+    height: 3rem;
+    background: green;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+#media article section aside .things {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: fuchsia;
+    text-shadow: 2px 2px 10px darkcyan;
+}
+#media article section aside .name {
+    color: rgb(93, 168, 58);
+    font-size: 0.9rem;
+}
+@media only screen and (max-width:  600px) {
+    #media {
+        padding: 1rem;
+        padding-left: 18%;
+    }
+    #media .line {
+        display: none;
+    }
+    #media article section aside {
+        padding-right: 10vw;
+    }
+    #media article section aside p {
+        margin: 0.5vh auto;
+    }
+}
+@media only screen and (min-width:  600px) and (max-width:  900px) {
+    main #media {
+        padding: 5rem 1rem;
+        padding-left: 6rem;
+    }
+    #media article section {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+    #media article section aside {
+        flex: 1;
+    }
+    #media .line {
+        margin-left: 20vw;
+    }
+    #media article section aside {
+        position: absolute;
+        padding: 0 10vw 0 25vw;
+    }
+}
+@media only screen and (min-width:  900px) {
+    main #media {
+        padding: 5rem 1rem;
+        padding-left: 20%;
+    }
+    #media article section {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+    #media article section aside {
+        flex: 1;
+    }
+    #media .line {
+        margin-left: 15vw;
+    }
+    #media article section aside {
+        position: absolute;
+        padding-left: 21vw;
+    }
+}
+/* 
 .text-red {
     color: #f6393f;
 }
@@ -146,4 +232,4 @@
     #media article section time {
         position: absolute;
     }
-}
+} */
