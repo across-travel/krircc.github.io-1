@@ -12,6 +12,73 @@ main #meijiao {
 main #articlestyle {
     line-height: 1.8rem;
 }
+main #articlestyle img {
+    margin: 1rem auto;
+    padding: 0.1rem;
+    width: 100%;
+}
+main #articlestyle h1,
+main #articlestyle h2,
+main #articlestyle h3,
+main #articlestyle h4,
+main #articlestyle h5,
+main #articlestyle h6 {
+    padding: 1.1vh 0;
+}
+main #articlestyle iframe {
+    margin: 0.5rem auto;
+    width: 99%;
+}
+main #articlestyle blockquote {
+    padding: 0.8rem;
+    border-left: 5px solid #ccc;
+    background: ghostwhite;
+    width: 100%;
+}
+main #articlestyle ul, main #articlestyle ol {
+    margin: 1vh auto;
+}
+main #articlestyle ul li:before {
+    margin: auto 0.5rem;
+    list-style-type:disc;
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+main #articlestyle ol li {
+    margin: auto 1.6rem;
+    list-style-type:decimal;
+}
+main #articlestyle pre {
+    display: block;
+    padding: 5px;
+    margin: 5px 0;
+    line-height: 1.5;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #fcf4fc;
+    border: 1px solid rgb(246, 226, 252);
+    text-shadow: none;
+}
+main #articlestyle code {
+    padding: 2px 4px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: fuchsia;
+    text-shadow: none;
+}
+main #articlestyle pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+}
 main #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
@@ -52,6 +119,9 @@ main #myBtn {
     }
     main #articlestyle {
         margin: 1rem 11% 2rem;
+    }
+    main #articlestyle iframe {
+        width: 555px;
     }
     main #myBtn { 
         right: 3%; /* Place the button 30px from the right */

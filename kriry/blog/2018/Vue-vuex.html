@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>kriry</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../css/article.css" />
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <script src="../../js/gtop.js"></script>
+        <script src="../../js/nav.js" async></script>
+        <link rel="stylesheet" href="../../css/article.css" />
+        <link href="https://lib.baomitu.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+        <script src="https://lib.baomitu.com/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+            <header>
+                    <div id="mnav">
+                        <div id="lnav">
+                            <h1><a href="/"><img src="../../imgs/kriry.jpeg"/></a><a id="logo" href="/">kriry</a></h1>
+                            <label ><a href="#" id="menu">Menu</a></label>
+                        </div>
+                        <div id="rnav">
+                            <li> <a href="../../picture.html" title="照片">照片</a></li>
+                            <li> <a href="../../music.html" title="音乐">音乐</a></li>
+                            <li> <a href="../../media.html" title="影视">影视</a></li>
+                            <li> <a href="../../blog.html" title="博客">博客</a></li>
+                            <li> <a href="../../about.html" title="关于">关于</a></li>
+                        </div> 
+                    </div>
+            </header> 
+        <main>      
+        <div id="articlepic"><img src="../../imgs/lan.jpg"></div>
+        <p id="meijiao">2018-08-15&emsp;kriry&emsp;Vuex</p>
+        <div id="articlestyle">
+
+
+        <h1 id="vue-%E7%B3%BB%E5%88%97--vuex-%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91">Vue 系列--Vuex 数据流向</h1>
+<p>日常开发中一般我们都会接触到<code>组件化</code>的概念，将一些通用的模块封装成组件去复用，提高开发效率，组件中<code>父子</code>组件、<code>兄弟</code>组件、<code>跨级</code>组件等组件之间的<code>通信</code>是我们必须要去关注的。</p>
+<p>但当我们的组件非常复杂，嵌套层级很深的时候：</p>
+<ul>
+<li>父组件给子组件不得不将 props 一层一层的传递下去</li>
+<li>子组件同样也要利用 $emit 事件机制层层注册</li>
+</ul>
+<p>数据最终变的难以维护</p>
+<blockquote>
+<p>这时我们可以引入 Vuex 来管理状态（数据）。</p>
+</blockquote>
+<h2 id="%E4%B8%80vuex-%E6%98%AF%E4%BB%80%E4%B9%88">一、Vuex 是什么</h2>
+<blockquote>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。</p>
+<p>它采用<code>集中式</code>存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+</blockquote>
+<p>通俗一点的话说就是：</p>
+<blockquote>
+<p>Vue 应用中<code>统一管理数据</code>的地方。</p>
+</blockquote>
+<p>Vuex 的特点是：</p>
+<p><strong>把数据单独隔离 -- 意味着它有自己的生态系统，有<code>固定的输入</code>和<code>输出</code></strong>.</p>
+<p>图一是整个 Vuex 的数据流向及触发过程示意：
+<img src="https://vuex.vuejs.org/vuex.png" alt="vuex"></p>
+<p>其中：</p>
+<ul>
+<li>
+Actions 作为数据的输入
+</li>
+<li>
+State 作为数据的输出。
+</li>
+</ul>
+<h2 id="%E4%BA%8C%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91">二、数据流向</h2>
+<h3 id="21-components-%E6%94%B6%E9%9B%86%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88%E8%A7%A6%E5%8F%91-actions">2.1 Components 收集用户反馈触发 Actions</h3>
+<p>图一中 Actions 是负责处理从 Vue Components 接收到的<code>用户行为</code>的模块。</p>
+<ul>
+<li>
+调用其他 action
+</li>
+<li>
+发送<code>异步</code>请求以及<code>提交</code>（commit） mutations
+</li>
+</ul>
+<p>都是在这个模块中操作。</p>
+<h4 id="211-%E5%AE%9A%E4%B9%89-action">2.1.1 定义 Action</h4>
+<blockquote>
+<p>要点：</p>
+<ul>
+<li>action 函数接受一个与 store 实例具有相同方法和属性的 context 对象；</li>
+<li>因为 action 通常是异步的，可以结合 Promise 来组合多个 action 来处理复杂的异步流程。</li>
+</ul>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-comment">// store/index.js</span>
+actions:{
+    <span class="hljs-comment">// 基础的action</span>
+    addTodoOne(context, todo){
+        <span class="hljs-keyword">if</span>(todo.value != <span class="hljs-string">""</span>){
+            context.commit(<span class="hljs-string">"ADD_TODO"</span>, todo);
+        }
+    },
+    <span class="hljs-comment">// 解构赋值</span>
+    addTodoTwo({ commit }, todo){
+        <span class="hljs-keyword">if</span>(todo.value != <span class="hljs-string">""</span>){
+            commit(<span class="hljs-string">"ADD_TODO"</span>, todo);
+        }
+    },
+    <span class="hljs-comment">// 异步调用</span>
+    addTodoThree({ dispatch, commit}, todo){
+        <span class="hljs-keyword">if</span>(todo.value != <span class="hljs-string">""</span>){
+            commit(<span class="hljs-string">'ADD_TODO'</span>, todo)
+            <span class="hljs-keyword">return</span> dispatch(<span class="hljs-string">'asyncAddTodo'</span>, todo).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                commit(<span class="hljs-string">'ADD_TODO_ASYNC'</span>, todo)
+            })
+        }
+    },
+    asyncAddTodo ({commit}, todo) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+            setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                resolve()
+            }, <span class="hljs-number">1000</span>)
+        })
+    }
+},
+
+</div></code></pre>
+<p>这里：<code>注意一下参数的不同</code></p>
+<p>context 里面有：</p>
+<ul>
+<li>dispatch -- 调用其他 action</li>
+<li>commit -- 调用 mutation</li>
+</ul>
+<h4 id="212-%E8%A7%A6%E5%8F%91-action">2.1.2 触发 Action</h4>
+<p>定义好的 action 怎样在 Component 中触发呢？</p>
+<pre class="hljs"><code><div>&lt;button type=<span class="hljs-string">"button"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"btn btn-success btn-lg btn-block"</span> @click=<span class="hljs-string">"addTodos"</span> &gt; 添加 &lt;button&gt;
+
+<span class="hljs-keyword">import</span> {mapActions} <span class="hljs-keyword">from</span> <span class="hljs-string">"vuex"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>{
+    ...
+    methods:{
+        <span class="hljs-comment">// 用户行为</span>
+        addTodos(){
+            <span class="hljs-keyword">let</span> todo = {
+                <span class="hljs-attr">value</span>: <span class="hljs-keyword">this</span>.value,
+                <span class="hljs-attr">id</span>: ++<span class="hljs-keyword">this</span>.id
+            };
+            <span class="hljs-keyword">this</span>.value = <span class="hljs-string">""</span>;
+            <span class="hljs-comment">// 触发Action 方式一</span>
+            <span class="hljs-keyword">this</span>.$store.dispatch(<span class="hljs-string">"addTodo"</span>, todo);
+            <span class="hljs-comment">// 触发Action 方式二 、addTodo为 mapActions 函数返回</span>
+            <span class="hljs-keyword">this</span>.addTodo(todo)
+            <span class="hljs-comment">// 触发Action 方式三、add为 mapActions 函数返回</span>
+            <span class="hljs-keyword">this</span>.add(todo)
+        },
+        ...mapActions([
+            <span class="hljs-string">'addTodo'</span>,
+        ]),
+        ...mapActions({
+            <span class="hljs-attr">add</span>: <span class="hljs-string">'addTodo'</span>
+        })
+    }
+}
+</div></code></pre>
+<p>最基本的触发方式：</p>
+<blockquote>
+<p>this.$store.dispatch(&quot;addTodo&quot;, todo);</p>
+</blockquote>
+<p>方式二和三种中使用 '...'  扩展运算符将  mapActions 返回值混入到 methods 中。</p>
+<p><code>mapActions</code> 是 Vuex 提供的辅助函数，可以有效精简我们的代码。</p>
+<blockquote>
+<p>mapActions 可以接受一个数组或一个对象在使用 module 时，可以接受 module 路径跟简写对象，暂不展开，详情请阅读官方文档<a href="https://vuex.vuejs.org/zh/guide/modules.html">https://vuex.vuejs.org/zh/guide/modules.html</a></p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-comment">// 调用 `this.addTodo()`方法映射为 `this.$store.dispatch('addTodo')`</span>
+...mapActions([
+    <span class="hljs-string">'addTodo'</span>,
+]),
+<span class="hljs-comment">// 调用 `this.add()` 方法映射为 `this.$store.dispatch('addTodo')`</span>
+...mapActions({
+    <span class="hljs-attr">add</span>: <span class="hljs-string">'addTodo'</span>
+})
+</div></code></pre>
+<h3 id="22-actions-%E6%8F%90%E4%BA%A4commitmutations%E8%AF%B7%E6%B1%82%E4%BF%AE%E6%94%B9-state">2.2 Actions 提交（commit）Mutations，请求修改 State</h3>
+<h4 id="221-%E5%AE%9A%E4%B9%89-mutation">2.2.1 定义 Mutation</h4>
+<blockquote>
+<p>要点：</p>
+<ol>
+<li>mutation 默认接受当前 state 为第一个参数；</li>
+<li>mutation 是修改 state 的唯一途径，并且是同步执行，区别于 action ；</li>
+<li>最好提前在你的 Store 中初始化好所有所需属性；</li>
+<li>当需要在对象上添加新属性时，你应该使用 Vue.set(obj, 'newProp', 123)，使增加的新属性在 Vue 应用中是响应式的；</li>
+<li>官方推荐使用大写常量来定义 mutation，统一管理，一目了然。</li>
+</ol>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-comment">// mutation-type.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ADD_TODO = <span class="hljs-string">'ADD_TODO'</span>
+<span class="hljs-comment">// store.js</span>
+<span class="hljs-keyword">import</span> { ADD_TODO } form <span class="hljs-string">'./mutation-type.js'</span>
+
+<span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store({
+    <span class="hljs-attr">state</span>:{ ... },
+    <span class="hljs-attr">getters</span>:{ ... },
+    <span class="hljs-attr">mutations</span>:{
+        [ADD_TODO](state, todo) {
+            state.todos.push(todo);
+            Vue.set(state, <span class="hljs-string">'newProp'</span>, <span class="hljs-number">123</span>)
+        }
+    },
+    <span class="hljs-attr">actions</span>:{ ... },
+    <span class="hljs-attr">modules</span>:{ ... }
+});
+
+</div></code></pre>
+<h4 id="222-%E8%A7%A6%E5%8F%91-mutation">2.2.2 触发 Mutation</h4>
+<blockquote>
+<p>注意：</p>
+<p>1、Component 中触发一些简单的同步操作，可直接触发（commit）mutation</p>
+<p>2、若需要异步操作的则需要在 action 中触发（commit）mutation</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-comment">// component 中直接触发（commit）Mutation</span>
+&lt;button <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"btn btn-default btn-danger"</span>
+@click=<span class="hljs-string">"delTodo(index)"</span>&gt; 删除 &lt;button&gt;
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">import</span> { mapMutations } <span class="hljs-keyword">from</span> <span class="hljs-string">"vuex"</span>;
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>{
+    ...
+    methods: {
+        delTodo(index){
+        <span class="hljs-comment">// 可以向commit传入额外的参数，</span>
+        <span class="hljs-comment">// 即mutation的(payload)</span>
+            <span class="hljs-keyword">this</span>.$store.commit(<span class="hljs-string">"DEL_TODO"</span>, index)
+        },
+        <span class="hljs-comment">// 将 `this.DEL_TODO()` 映射为</span>
+        <span class="hljs-comment">// `this.$store.commit('DEL_TODO')</span>
+        ...mapMutations([
+        <span class="hljs-string">'   DEL_TODO'</span>
+        ]),
+        <span class="hljs-comment">// 将 `this.testDel()` 映射为</span>
+        <span class="hljs-comment">// `this.$store.commit('DEL_TODO')</span>
+        ...mapMutations({
+            <span class="hljs-attr">testDel</span>: <span class="hljs-string">'DEL_TODO'</span>
+        })
+    }
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+<span class="hljs-comment">// actions 中异步触发</span>
+...
+actions:{
+    <span class="hljs-comment">// 异步调用</span>
+    addTodoThree({ dispatch, commit}, todo){
+        <span class="hljs-keyword">if</span>(todo.value != <span class="hljs-string">""</span>){
+            commit(<span class="hljs-string">'ADD_TODO'</span>, todo)
+            <span class="hljs-keyword">return</span> dispatch(<span class="hljs-string">'asyncAddTodo'</span>, todo).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                commit(<span class="hljs-string">'ADD_TODO_ASYNC'</span>, todo)
+            })
+        }
+    },
+    asyncAddTodo ({commit}, todo) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+            setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                resolve()
+            }, <span class="hljs-number">1000</span>)
+        })
+    }
+},
+</div></code></pre>
+<p>方式一：在组件的事件中直接调用</p>
+<blockquote>
+<p>this.$store.commit(&quot;DEL_TODO&quot;,index)</p>
+</blockquote>
+<p>方式二：异步操作在 action 中完成</p>
+<h3 id="23-mutation-%E5%90%8C%E6%AD%A5%E4%BF%AE%E6%94%B9-state">2.3 Mutation 同步修改 State</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// store.js</span>
+mutations:{
+    [ADD_TODO](state, todo) {
+        state.todos.push(todo);
+        Vue.set(state, <span class="hljs-string">'newProp'</span>, <span class="hljs-number">123</span>)
+    },
+    [ADD_TODO_ASYNC](state, todo) {
+        state.todos.push(todo);
+    },
+    [DEL_TODO](state, index) {
+        state.todos.splice(index, <span class="hljs-number">1</span>);
+    }
+},
+</div></code></pre>
+<h3 id="24-state-%E6%94%B9%E5%8F%98%E5%90%8E%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93rendercomponents">2.4 State 改变后重新渲染（Render）Components</h3>
+<h4 id="241-%E4%BD%BF%E7%94%A8-state">2.4.1 使用 State</h4>
+<p>Component 中是怎样绑定 state 的值呢？</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> {mapState, mapGetters} <span class="hljs-keyword">from</span> <span class="hljs-string">"vuex"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'app'</span>,
+    data () { ... },
+    <span class="hljs-attr">computed</span>:{
+        <span class="hljs-comment">// 第一种</span>
+        state1 () {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$store.state.state1
+        },
+        <span class="hljs-comment">// 第二种</span>
+        <span class="hljs-comment">// 当计算属性的名称与state的状态名称一样时，可以省写</span>
+        <span class="hljs-comment">// 映射 this.state2 为 store.state.state2</span>
+        ...mapState({
+        <span class="hljs-attr">state2</span>: <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.state2
+        }),
+        <span class="hljs-comment">// 第三种 同名state也可以用数组的方式省写</span>
+        <span class="hljs-comment">// 映射 this.state2 为 store.state.state2</span>
+        ...mapState([
+        <span class="hljs-string">'state2'</span>
+        ]),
+    }
+}
+</div></code></pre>
+<h4 id="242-%E4%BD%BF%E7%94%A8-getter">2.4.2 使用 Getter</h4>
+<p>如果想要从 Store 中的 state 去衍生出一些状态，可以使用 getter，相当于 state 的计算属性</p>
+<p>可以在实例化的时候和 state 并行，定义一个 getters</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// store.js</span>
+    <span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store({
+        <span class="hljs-attr">state</span>: { ... },
+        <span class="hljs-attr">getters</span>: {
+            <span class="hljs-attr">count</span>: <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> {
+                <span class="hljs-keyword">return</span> state.todos.length + <span class="hljs-number">10</span>;
+            }
+        }
+    })
+    </div></code></pre>
+<p>注意：<code>getter count 的第二个参数也可以关注一下</code></p>
+<p>在组件中像下面这样调用：</p>
+<blockquote>
+<p>从 $store.getters 里面获取</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-comment">// 组件中</span>
+computed:{
+    <span class="hljs-comment">// 第一种</span>
+    todoCount () {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$store.getters.count
+    },
+    <span class="hljs-comment">// 第二种</span>
+    ...mapGetters({
+        <span class="hljs-attr">count</span>: <span class="hljs-string">'count'</span>
+    }),
+    <span class="hljs-comment">// 第三种</span>
+    ...mapGetters([
+        <span class="hljs-string">'count'</span>
+    ])
+},
+</div></code></pre>
+<p>至此，一个完整的数据流向就闭环了。</p>
+<p><a href="https://mp.weixin.qq.com/s/vWB8GkJe0HVQTotLKez3pg?utm_source=tuicool&amp;utm_medium=referral">原文</a></p>
+
+<button id="myBtn" title="返回顶部">顶部</button></div></main>
+    </body>
+    </html>
