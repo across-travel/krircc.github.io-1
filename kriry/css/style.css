@@ -29,8 +29,8 @@
   }
 
 /* ----------------------------------------nav----------------------------------------*/
-#header, #lnav, #rnav {
-  background:url(../imgs/sky.jpg) no-repeat;
+#header {
+  background:url(../imgs/blaer.jpg) no-repeat;
   background-size: cover;
 }
 #header, #lnav {
@@ -69,6 +69,10 @@
     }
 /* ----------------------------------------mobile----------------------------------------*/
     @media only screen and (max-width:  600px) {
+      #header,#lnav,#rnav {
+        background:url(../imgs/blaer.jpg) no-repeat;
+        background-size: cover;
+      }
         #rnav {
             padding-top: 3.13rem;
             height: 0;

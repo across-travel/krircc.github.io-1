@@ -3,11 +3,11 @@
 
 main #home {
     text-align: center;
-    background:url(../imgs/sky.jpg) no-repeat;
+    background:url(../imgs/blaer.jpg) no-repeat;
     background-size: cover;
-    height: 768px;
+    height: 100%;
 }
-main #home h1 {
+/* main #home h1 {
     margin-top: 18rem;
     font-size: 3rem;
     line-height: 4rem;
@@ -18,7 +18,7 @@ main #home p {
     line-height: 3rem;
     margin: 3rem auto;
     color: fuchsia;
-}
+} */
 
 @media only screen and (max-width:  600px) { 
     main #home {
