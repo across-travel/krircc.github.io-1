@@ -31,14 +31,11 @@ main {
     height: 100%;
 }
 @media only screen and (max-width: 599px) { 
-    main {
-        width: 99.5%;
-    }
     main #toppic {
         height: 40vh; 
     }
     main #toppic #word {
-        padding-top: 5.5rem;
+        padding: 5.5rem 2rem 0 2rem;
         line-height: 3rem;
     }
     #content {
