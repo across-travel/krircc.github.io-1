@@ -4,33 +4,33 @@
 main #picture {
     margin-bottom: 1rem;
 }
-  #picture #wrapper .name .img {
+#picture #wrapper .name .img {
     width: 100%;
     height: 30vh;
-  }
-  #picture #wrapper .name img {
+}
+#picture #wrapper .name img {
     width: 100%;
     height: 100%;
-  }
-  #picture #wrapper .name .texts {
+}
+#picture #wrapper .name .texts {
     padding: 2rem;
-  }
-  #picture #wrapper .name header {
+}
+#picture #wrapper .name header {
     text-align: center;
-  }
-  #picture #wrapper .name header h2 {
+}
+#picture #wrapper .name header h2 {
     margin-bottom: 1rem;
     text-transform : uppercase;
-  }
-  #picture #wrapper .name header p {
+}
+#picture #wrapper .name header p {
     color: rgb(12, 136, 49);
-  }
-  #picture #wrapper .name p {
+}
+#picture #wrapper .name p {
     text-align: center;
-  }
-  #picture #wrapper .name hr {
+}
+#picture #wrapper .name hr {
     margin: 2rem auto;
-  }
+}
 
 @media only screen and (max-width:  600px) {
     main {
