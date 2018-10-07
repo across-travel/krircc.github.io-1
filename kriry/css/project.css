@@ -4,13 +4,23 @@
 ul, ol, li {
     list-style: square;
 }
-main #toppic img {
+main #toppic {
     width: 100%;
-    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/hua.jpg");
+}
+main #toppic #word {
+    vertical-align: middle;
+    text-align: center;
+    color: fuchsia;
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 #content {
-    padding: 2rem 1rem;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
+}
+#content h2 {
+    margin: 0 auto;
+    padding-bottom: 1rem;
 }
 #content .project .img {
     width: 100%;
@@ -21,19 +31,66 @@ main #toppic img {
     height: 100%;
 }
 @media only screen and (max-width: 599px) { 
-   
+    main {
+        width: 99.5%;
+    }
+    main #toppic {
+        height: 40vh; 
+    }
+    main #toppic #word {
+        padding-top: 5.5rem;
+    }
+    #content {
+        padding: 1rem 0.8rem;
+    }
+    #content section {
+        margin-bottom: 2rem;
+    }
+    #content section .line { 
+        padding-bottom: 1rem;
+    }
 }
 @media only screen and (min-width: 600px) and (max-width: 999px) {
-
+    main #toppic {
+        padding-top: 3.2rem;
+        height: 50vh;  
+    }
+    main #toppic #word {
+        padding-top: 6.8rem;
+    }
+    #content {
+        padding: 9vh 9vw;
+    }
+    #content section {
+        margin-bottom: 2rem;
+    }
+    #content section .line { 
+        padding-bottom: 1rem;
+    }
 }
 @media only screen and (min-width: 1000px) {
     main #toppic {
-        height: 55vh; 
+        padding-top: 3.2rem;
+        height: 55vh;  
+        margin-bottom: 2rem;
+    }
+    main #toppic #word {
+        padding-top: 8.8rem;
+        vertical-align: middle;
+        text-align: center;
+        color: fuchsia;
+        font-size: 2.2rem;
+        font-weight: bold;
+    }
+    #content h2 {
+        width: 77%;
     }
     #content section {
         display: flex;
         flex-flow: row;
-        margin: 3rem 8rem;
+        margin: 0 auto;
+        width: 77%;
+        margin-bottom: 5rem;
     }
     #content section .texts {
         width: 60%;
