@@ -1,1 +1,0 @@
-# krircc  [![Build Status](https://travis-ci.org/krircc/krircc.svg?branch=master)](https://travis-ci.org/krircc/krircc)
