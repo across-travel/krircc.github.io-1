@@ -1,13 +1,15 @@
 @charset "utf-8";
 @import url(./style.css);
 
-main #articlepic img {
+main #articlepic {
+    width: 100%;
+}
+main #articlepic #title {
     width: 100%;
     height: 100%;
-}
-main #meijiao {
     color: fuchsia;
     font-weight: bold;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/hua.jpg");
 }
 main #articlestyle {
     line-height: 1.8rem;
@@ -97,28 +99,39 @@ main #myBtn {
 }
 @media only screen and (max-width:  600px) { 
     main #articlepic {
-        height: 40vh; 
+        height: 13rem; 
+    }
+    main #articlepic #title {
+        padding: 3.5rem 4%;
+        line-height: 2.2rem;
     }
     main #meijiao {
-        margin: 0.5rem 3%;
+        margin: 1rem 0.2rem;
     }
     main #articlestyle {
-        margin: 0 3% 4.4rem;
+        margin: 1rem 4%;
     }
     main #myBtn { 
         right: 11%; /* Place the button 30px from the right */
     }
 }
-@media only screen and (min-width:  600px) and (max-width:  900px) {
+@media only screen and (min-width:  600px) and (max-width:  999px) {
+    main {
+        padding-top: 3.3rem;
+    }
     main #articlepic {
-        padding-top: 3.2rem;
-        height: 60vh; 
+        height: 16rem;  
+    }
+    main #articlepic #title {
+        padding: 4rem 11%;
+        font-size: 1.2rem;
+        line-height: 2.6rem;
     }
     main #meijiao {
-        margin: 0.5rem 11%;
+        margin: 1rem 0.2rem;
     }
     main #articlestyle {
-        margin: 1rem 11% 2rem;
+        margin: 1.1rem 11%;
     }
     main #articlestyle iframe {
         width: 555px;
@@ -127,17 +140,23 @@ main #myBtn {
         right: 3%; /* Place the button 30px from the right */
     }
 }
-@media only screen and (min-width:  900px) {
+@media only screen and (min-width:  1000px) {
+    main {
+        padding-top: 3.3rem;
+    }
     main #articlepic {
-        padding-top: 3.2rem;
-        height: 77vh; 
+        height: 22rem;  
+    }
+    main #articlepic #title {
+        padding: 5.5rem 22%;
+        font-size: 1.3rem;
+        line-height: 3rem;
     }
     main #meijiao {
-        float: right;
-        margin: 1rem 9% auto auto;
+        margin: 1rem 0.2rem;
     }
     main #articlestyle {
-        margin: 2.2rem 22%;
+        padding: 1.1rem 22%;
     }
     main #myBtn { 
         right: 15%; /* Place the button 30px from the right */

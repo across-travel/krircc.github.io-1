@@ -11,9 +11,6 @@
     flex: 1;
     padding: 0 1rem;
 }
-#blog li img, #blog li #item {
-    box-sizing: border-box;
-}
 #blog li a { 
     font-weight: bold;
 }
@@ -25,7 +22,7 @@
 
 @media only screen and (max-width:  600px) { 
     main #blog {
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
     #blog li {
         padding-left: 1rem;
@@ -41,15 +38,15 @@
 }
 @media only screen and (min-width:  600px) and (max-width:  900px) {
     main #blog {
-        padding-top: 4rem;
+        padding-top: 5rem;
     }
     #blog li {
         padding-left: 15%;
         margin-bottom: 1rem;
     }
     #blog li img {
-        width: 4rem;
-        height: 4rem;
+        width: 3.3rem;
+        height: 3.3rem;
     }
     #blog li a { 
         font-size: 1.2rem;
@@ -64,13 +61,13 @@
         margin-bottom: 1rem;
     }
     #blog li img {
-        width: 4rem;
-        height: 4rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
     #blog li a { 
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     #blog li #tail {
-        margin-top: 0.6vh;
+        margin-top: 0.4vh;
     }
 }

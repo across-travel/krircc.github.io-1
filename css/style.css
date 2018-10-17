@@ -53,15 +53,16 @@
   #lnav h1 img {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     vertical-align:middle;
+    margin-left: 0.4rem;
   }
   #lnav label a {
     float: right;
     font-size: 26px;
     font-weight: bold;
     color: var(--theme);
-    margin-right: 1rem;
+    vertical-align:middle;
+    margin-right: 0.5rem;
   }
 /* ----------------------------------------main----------------------------------------*/
     main {
