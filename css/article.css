@@ -37,18 +37,9 @@ main #articlestyle blockquote {
     background: ghostwhite;
     width: 100%;
 }
-main #articlestyle ul, main #articlestyle ol {
-    padding: 0.1rem;
-}
-main #articlestyle ul li:before {
-    margin: auto 0.5rem;
-    list-style-type:disc;
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border-radius: 50%;
+main #articlestyle ul li {
+    margin: auto 1.5rem;
+    list-style-type:square;
 }
 main #articlestyle ol li {
     margin: auto 1.6rem;
