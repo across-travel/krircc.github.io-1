@@ -1,27 +1,44 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
-        <style>
-/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
-</style>
-<style>
-/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
-</style>
-<style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        <title>kriry</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../css/article.css" />
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <script src="../../js/gtop.js"></script>
+        <script src="../../js/nav.js" async></script>
+        <link rel="stylesheet" href="../../css/article.css" />
+        <link href="https://lib.baomitu.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+        <script src="https://lib.baomitu.com/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body>
-        <h1 id="linux网络与web编程">Linux网络与Web编程</h1>
+            <header>
+                    <div id="mnav">
+                        <div id="lnav">
+                            <h1><a href="/"><img src="../../imgs/logo.png"/></a><a id="logo" href="/">kriry</a></h1>
+                            <label ><a href="#" id="menu">M</a></label>
+                        </div>
+                        <div id="rnav">
+                                <li> <a href="../../blog.html" title="博客">博客</a></li>
+                                <li> <a href="../../project.html" title="项目">项目</a></li>
+                                <li> <a href="../../about.html" title="关于">关于</a></li>
+                                <li> <a href="../../life.html" title="生活">生活</a></li>
+                        </div> 
+                    </div>
+            </header> 
+        <main>      
+        <div id="articlepic">
+            <div id="title">
+                    <h1 id="linux网络与web编程">Linux网络与Web编程</h1>
+                <h5 id="meijiao">2018-10-19&emsp;kriry&emsp;Linux-Net-Web</h5>
+            </div>
+        </div>
+        <div id="articlestyle">
+
+        
 <h2 id="1-网络分层模型">1. 网络分层模型</h2>
 <ul>
 <li>OSI七层模型</li>
@@ -29,13 +46,13 @@
 <li>应用程序实现部分和内核实现部分</li>
 </ul>
 <p>最常用TCP的网络处理部分，都是由内核来完成的。</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/net-7.webp" alt="pic"></p>
 <h2 id="tcp服务端和客户端编程模型">TCP服务端和客户端编程模型</h2>
 <p>TCP创建连接需要三次握手，而断开连接需要四次挥手，如图：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/net-bs.webp" alt="pic"></p>
 <p>图清晰的说明了连接的建立、数据发送以及断开连接时所对应的编程函数，另外还有相应的TCP状态转换。</p>
 <h2 id="2-服务端客户端编程函数">2. 服务端客户端编程函数</h2>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/func.webp" alt="pic"></p>
 <p>服务端编程用到的主要函数为：</p>
 <ol>
 <li>
@@ -61,7 +78,7 @@
 </li>
 </ol>
 <p>关于服务端的用于连接的fd和用于读写的fd，请见下图：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/bs.webp" alt="pic"></p>
 <p>客户端编程用到的函数为：</p>
 <ol>
 <li>
@@ -82,14 +99,14 @@
 </ol>
 <h2 id="概念">概念</h2>
 <h3 id="backlog">backlog</h3>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/backlog.webp" alt="pic"></p>
 <p>内核中会维护两个队列：</p>
 <ul>
 <li>
-<p>未完成连接的队列： 服务端收到客户端的连接请求（SYNC），在三次握手完成前，会放到这个队列中</p>
+未完成连接的队列： 服务端收到客户端的连接请求（SYNC），在三次握手完成前，会放到这个队列中
 </li>
 <li>
-<p>完成连接的队列：完成三次握手后就创建了一个TCP连接，这个连接会放到这个队列中</p>
+完成连接的队列：完成三次握手后就创建了一个TCP连接，这个连接会放到这个队列中
 </li>
 </ul>
 <blockquote>
@@ -99,40 +116,40 @@
 <p>backlog定义了未完成连接的队列的最大长度</p>
 <h3 id="rtt">RTT</h3>
 <p>这个概念常常听到，请见图：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/rtt.webp" alt="pic"></p>
 <p>RTT的定义是Round-Trip Time，即数据包的往返时延</p>
 <h3 id="tcp-stream">TCP Stream</h3>
 <p>我们通常说TCP是流式的</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/stream.webp" alt="pic"></p>
 <p>对应一个TCP连接，内核会给这个连接分配一个发送缓冲和接收缓冲，我们的应用程序对这来两个缓冲区的读写就是在做网络数据的接收和发送。</p>
 <p>而数据在网络上的传输是内核自己在维护的，当发送缓冲区中有数据后，内核就把这些数据发送给对端；同样的，当对端有数据过来时，内核会把它放到接收缓冲区中，等待应用程序的读写。</p>
 <p>这样的发送和接收数据的过程，就像水流一样，所以我们说TCP是流式的。</p>
 <h3 id="tcp状态转换">TCP状态转换</h3>
 <p>TCP定义了很多状态，这些状态之间的转换关系如下图：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/tcp.webp" alt="pic"></p>
 <h2 id="3-io模型">3. IO模型</h2>
 <p>网络操作就是IO操作，而且网络的IO是最慢的一种了，网络编程的很大难点就是妥善的处理好这一块的问题。</p>
 <p>Unix定义了多种IO操作模型，分别是：</p>
 <ul>
 <li>
-<p>阻塞IO</p>
+阻塞IO
 </li>
 <li>
-<p>非阻塞IO</p>
+非阻塞IO
 </li>
 <li>
-<p>IO多路复用</p>
+IO多路复用
 </li>
 <li>
-<p>信号驱动IO</p>
+信号驱动IO
 </li>
 <li>
-<p>异步IO</p>
+异步IO
 </li>
 </ul>
 <h3 id="阻塞io">阻塞IO</h3>
 <p>这里有一点非常重要的概念要先说明下，那就是阻塞的是什么？</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/blockio.webp" alt="pic"></p>
 <p>首先要记住：数据在网络上的传输完全是内核在控制的，应用程序中的read和write只是在读写接收缓冲和发送缓冲。</p>
 <p>读阻塞：调用read时，如果接收缓冲区中没有数据，那么就会产生阻塞</p>
 <p>写阻塞：调用write时，如果发送缓冲区中的数据没有发送出去，那么就会产生阻塞</p>
@@ -141,23 +158,24 @@
 <p>write的执行时间为：将用户空间中的应用程序缓冲区的内容拷贝到内核的发送缓冲区</p>
 <h3 id="非阻塞io">非阻塞IO</h3>
 <p>理解了导致阻塞的原因，那么非阻塞就非常好理解了：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/noblackio.webp" alt="pic"></p>
 <p>当内核缓冲区无法读写时，read和write就会返回EWOULDBLOCK，应用程序就需要过会儿再来操作。</p>
 <p>光是这样，还不能实现高性能的网络程序，这是因为我们无法判断应该什么时间再来做读写操作。</p>
 <p>如果一直循环读写，那么CPU占用会很居高不下；如果sleep一段时间，那么多长时间合适呢？</p>
 <p>所以，如果想开发高性能的网络程序，我们还需要别的武器。</p>
 <h3 id="io多路复用">IO多路复用</h3>
 <p>这是操作系统提供的一种通知机制，告诉应用程序何时可以做读写操作：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/iofuyong.webp" alt="pic"></p>
 <p>不同操作系统提供了不同的编程接口，一个非常有名的库libevent就是对这些库的一个统一接口封装。</p>
 <p>IO多路复用也是现在用的最多的一种高性能网络服务器的IO处理模型，例如Nginx</p>
 <h3 id="信号驱动io">信号驱动IO</h3>
 <p>不同于IO多路复用，操作系统用信号的方式告诉应用程序何时可以做读写操作：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/signio.webp" alt="pic"></p>
 <h3 id="异步io">异步IO</h3>
 <p>最后这一种我没有用过，从概念上理解，相当于操作系统将数据做完用户空间和内核空间的复制后，才会通知应用程序：</p>
-<p><img src="" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/krircc/krircc.github.io/master/imgs/blog/net-programming/asyncio.webp" alt="pic"></p>
 <p><a href="https://mp.weixin.qq.com/s/zqUTjkQA9ClIBe7VuSbvjw?utm_source=tuicool&amp;utm_medium=referral">出处</a></p>
 
+<button id="myBtn" title="返回顶部">顶部</button></div></main>
     </body>
     </html>

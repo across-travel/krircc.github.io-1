@@ -38,7 +38,7 @@ main #articlestyle blockquote {
     width: 100%;
 }
 main #articlestyle ul, main #articlestyle ol {
-    margin: 1vh auto;
+    padding: 0.1rem;
 }
 main #articlestyle ul li:before {
     margin: auto 0.5rem;
