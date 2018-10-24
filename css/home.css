@@ -7,13 +7,13 @@ main #home {
     background-size: cover;
     height: 100%;
 }
-/* main #home h1 {
-    margin-top: 18rem;
+main #home .font {
+    font-family: Jacques Francois Shadow, serif;
     font-size: 3rem;
     line-height: 4rem;
-    color: #15f077;
+    color: #daf015;
 }
-main #home p {
+/* main #home p {
     font-size: 1.5rem;
     line-height: 3rem;
     margin: 3rem auto;
@@ -24,20 +24,23 @@ main #home p {
     main #home {
         padding: 2rem;
     }
-    main #home h1 {
+    main #home .font {
         margin-top: 11rem;
-        font-size: 3rem;
-        line-height: 4rem;
-        color: #15f077;
     }
 }
-@media only screen and (min-width:  600px) and (max-width:  900px) {
+@media only screen and (min-width:  600px) and (max-width:  999px) {
     main #home {
-        padding-top: 8rem;
+        padding: 8rem 2rem 0;
+    }
+    main #home .font {
+        margin-top: 18rem;
     }
 }
-@media only screen and (min-width:  900px) {
+@media only screen and (min-width:  1000px) {
     main #home {
-        padding-top: 8rem;
+        padding: 8rem 4rem 0;
+    }
+    main #home .font {
+        margin-top: 18rem;
     }
 }
