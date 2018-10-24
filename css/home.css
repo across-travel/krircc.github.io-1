@@ -11,6 +11,7 @@ main #home .font {
     font-family: Jacques Francois Shadow, serif;
     font-size: 3rem;
     line-height: 4rem;
+    font-weight: bold;
     color: #daf015;
 }
 /* main #home p {
@@ -25,6 +26,7 @@ main #home .font {
         padding: 2rem;
     }
     main #home .font {
+        font-size: 2rem;
         margin-top: 11rem;
     }
 }
