@@ -34,7 +34,7 @@ main #picture {
 
 @media only screen and (max-width:  600px) {
     main {
-        width: 99.5%;
+        width: 100%;
     }
     #picture #wrapper .name {
         margin-bottom: 1rem;

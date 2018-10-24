@@ -7,9 +7,10 @@ main #articlepic {
 main #articlepic #title {
     width: 100%;
     height: 100%;
-    color: fuchsia;
+    color: yellow;
     font-weight: bold;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/hua.jpg");
+    background-color: #E82542;
+    /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/blaer.jpg"); */
 }
 main #articlestyle {
     line-height: 1.8rem;
@@ -88,7 +89,7 @@ main #myBtn {
     height: 3rem;
     border-radius: 50%; /* Rounded corners */
 }
-@media only screen and (max-width:  600px) { 
+@media only screen and (max-width:  599px) { 
     main #articlepic {
         height: 13rem; 
     }

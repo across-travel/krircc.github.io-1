@@ -6,13 +6,13 @@
 }
 main #toppic {
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/hua.jpg");
 }
 main #toppic #word {
-    vertical-align: middle;
-    text-align: center;
-    color: fuchsia;
+    width: 100%;
+    height: 100%;
+    color: yellow;
     font-weight: bold;
+    background-color: #E82542;
 }
 main {
     line-height: 1.6rem;
@@ -31,12 +31,12 @@ main {
 }
 @media only screen and (max-width: 599px) { 
     main #toppic {
-        height: 30vh; 
+        height: 13rem; 
     }
     main #toppic #word {
-        padding: 4.4rem 2rem 0 2rem;
-        line-height: 2rem;
-        font-size: 1.5rem;
+        padding: 4.8rem 0.6rem;
+        line-height: 2.2rem;
+        font-size: 2rem;
     }
     #content {
         padding: 1rem 0.8rem;
@@ -49,16 +49,19 @@ main {
     }
 }
 @media only screen and (min-width: 600px) and (max-width: 999px) {
+    main {
+        padding-top: 3.3rem;
+    }
     main #toppic {
-        padding-top: 3.2rem;
-        height: 50vh;  
+        height: 16rem;   
     }
     main #toppic #word {
-        padding-top: 5.5rem;
-        font-size: 1.8rem;
+        padding-top: 7rem;
+        padding-left: 5rem;
+        font-size: 2rem;
     }
     #content {
-        padding: 9vh 9vw;
+        padding: 2rem 5.5rem;
     }
     #content section {
         margin-bottom: 2rem;
@@ -68,13 +71,16 @@ main {
     }
 }
 @media only screen and (min-width: 1000px) {
+    main {
+        padding-top: 3.3rem;
+    }
     main #toppic {
-        padding-top: 3.2rem;
-        height: 55vh;  
-        margin-bottom: 2rem;
+        height: 20rem;  
+        margin-bottom: 2rem; 
     }
     main #toppic #word {
         padding-top: 8rem;
+        padding-left: 11.1%;
         font-size: 2.2rem;
     }
     #content h2 {
