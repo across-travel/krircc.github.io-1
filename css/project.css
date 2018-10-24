@@ -12,7 +12,7 @@ main #toppic #word {
     height: 100%;
     color: yellow;
     font-weight: bold;
-    background-color: #E82542;
+    background-color: #B70052;
 }
 main {
     line-height: 1.6rem;
@@ -36,7 +36,7 @@ main {
     main #toppic #word {
         padding: 4.8rem 0.6rem;
         line-height: 2.2rem;
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     #content {
         padding: 1rem 0.8rem;

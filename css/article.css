@@ -9,7 +9,7 @@ main #articlepic #title {
     height: 100%;
     color: yellow;
     font-weight: bold;
-    background-color: #E82542;
+    background-color: #B70052;
     /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("../imgs/blaer.jpg"); */
 }
 main #articlestyle {
